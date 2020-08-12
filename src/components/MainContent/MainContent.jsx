@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Container, Typography, Fab, makeStyles } from "@material-ui/core";
-import { KeyboardArrowUp } from "@material-ui/icons";
-
-MainContent.propTypes = {};
+import { Typography, makeStyles, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
   fab: {
     position: "absolute",
     bottom: theme.spacing(2),
@@ -13,18 +12,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function MainContent(props) {
+function MainContent() {
   const classes = useStyles();
   return (
-    <Container maxWidth='lg'>
-      <Typography
-        component='div'
-        style={{ backgroundColor: "#cfe8fc", height: "100vh" }}
-      />
-      <Fab className={classes.fab} color='inherit'>
-        <KeyboardArrowUp></KeyboardArrowUp>
-      </Fab>
-    </Container>
+    <Grid container className={classes.root} spacing={2}>
+      <Grid item xs={12}>
+        <Typography h={6}>New football individual training</Typography>
+      </Grid>
+    </Grid>
   );
 }
 

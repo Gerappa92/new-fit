@@ -1,49 +1,48 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   AppBar,
   makeStyles,
   Toolbar,
   IconButton,
   Typography,
-  SwipeableDrawer,
-  List,
-  ListItem,
 } from "@material-ui/core";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-
-Navigation.propTypes = {};
+import MenuDrawer from "./MenuDrawer";
 
 const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: "rgba(0,0,0,0)",
+    boxShadow: "none",
+    color: "#000000",
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-  },
-  list: {
-    width: 250,
+    textAlign: "left",
+    marginLeft: theme.spacing(5),
+    fontFamily: "'Gochi Hand', cursive",
   },
 }));
 
-function Navigation(props) {
+function Navigation() {
   const classes = useStyles();
 
   const [state, setState] = React.useState({
     open: false,
   });
 
-  const toggleDrawer = (toggle) => (event) => {
+  const toggleDrawer = (toggle) => () => {
     setState({ ...state, open: toggle });
   };
 
   return (
-    <AppBar position='fixed' color='primary'>
+    <AppBar position='static' className={classes.appBar}>
       <Toolbar>
+        <Typography variant='h6' className={classes.title}>
+          NEW FIT
+        </Typography>
         <IconButton
           edge='start'
           className={classes.menuButton}
@@ -52,31 +51,8 @@ function Navigation(props) {
           onClick={toggleDrawer(true)}>
           <MenuIcon></MenuIcon>
         </IconButton>
-        <Typography variant='h6' className={classes.title}>
-          NEW FIT
-        </Typography>
       </Toolbar>
-      <SwipeableDrawer
-        anchor='left'
-        open={state.open}
-        onOpen={toggleDrawer(true)}
-        onClose={toggleDrawer(false)}>
-        <div
-          className={classes.list}
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}>
-          <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </div>
-      </SwipeableDrawer>
+      <MenuDrawer toggleDrawer={toggleDrawer} open={state.open}></MenuDrawer>
     </AppBar>
   );
 }
