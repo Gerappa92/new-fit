@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/new-fit/static/css/main.8c11f739.chunk.css",
+    "main.js": "/new-fit/static/js/main.6b06a03d.chunk.js",
+    "main.js.map": "/new-fit/static/js/main.6b06a03d.chunk.js.map",
+    "runtime-main.js": "/new-fit/static/js/runtime-main.09186688.js",
+    "runtime-main.js.map": "/new-fit/static/js/runtime-main.09186688.js.map",
+    "static/js/2.b29b3adf.chunk.js": "/new-fit/static/js/2.b29b3adf.chunk.js",
+    "static/js/2.b29b3adf.chunk.js.map": "/new-fit/static/js/2.b29b3adf.chunk.js.map",
+    "index.html": "/new-fit/index.html",
+    "precache-manifest.b804d0beb898aae8d6d1fedf7fd6f3b9.js": "/new-fit/precache-manifest.b804d0beb898aae8d6d1fedf7fd6f3b9.js",
+    "service-worker.js": "/new-fit/service-worker.js",
+    "static/css/main.8c11f739.chunk.css.map": "/new-fit/static/css/main.8c11f739.chunk.css.map",
+    "static/js/2.b29b3adf.chunk.js.LICENSE.txt": "/new-fit/static/js/2.b29b3adf.chunk.js.LICENSE.txt",
+    "static/media/Bramka.PNG": "/new-fit/static/media/Bramka.ebfce459.PNG",
+    "static/media/NEW_FIT_NASZYWKA_7x57cm.svg": "/new-fit/static/media/NEW_FIT_NASZYWKA_7x57cm.8b08b936.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09186688.js",
+    "static/js/2.b29b3adf.chunk.js",
+    "static/css/main.8c11f739.chunk.css",
+    "static/js/main.6b06a03d.chunk.js"
+  ]
+}
