@@ -1,32 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   AppBar,
   makeStyles,
   Toolbar,
   IconButton,
-  Typography,
+  Box,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuDrawer from "./MenuDrawer";
+import newFitLogo from "../../images/NEW_FIT_NASZYWKA_7x57cm.svg";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: "rgba(0,0,0,0)",
-    boxShadow: "none",
-    color: "#000000",
+    backgroundColor: "#FDFDFB",
+    color: "#050608",
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
+
   title: {
     flexGrow: 1,
     textAlign: "left",
-    marginLeft: theme.spacing(5),
-    fontFamily: "'Gochi Hand', cursive",
+  },
+  logo: {
+    height: "175px",
+    zIndex: "10",
+    marginTop: "3px",
+    position: "relative",
   },
 }));
 
-function Navigation() {
+function Navigation(props) {
+  const [positions, setPositions] = useState(props);
+
+  useEffect(() => {
+    setPositions(props);
+  }, [props]);
+
   const classes = useStyles();
 
   const [state, setState] = React.useState({
@@ -40,9 +49,9 @@ function Navigation() {
   return (
     <AppBar position='static' className={classes.appBar}>
       <Toolbar>
-        <Typography variant='h6' className={classes.title}>
-          NEW FIT
-        </Typography>
+        <Box className={classes.title}>
+          <img src={newFitLogo} alt='logo' className={classes.logo} />
+        </Box>
         <IconButton
           edge='start'
           className={classes.menuButton}
@@ -52,7 +61,10 @@ function Navigation() {
           <MenuIcon></MenuIcon>
         </IconButton>
       </Toolbar>
-      <MenuDrawer toggleDrawer={toggleDrawer} open={state.open}></MenuDrawer>
+      <MenuDrawer
+        {...positions}
+        toggleDrawer={toggleDrawer}
+        open={state.open}></MenuDrawer>
     </AppBar>
   );
 }
